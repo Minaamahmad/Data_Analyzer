@@ -1,13 +1,18 @@
 import numpy as np
-from tkinter import Tk , filedialog
 
+from openpyxl import workbook
 from docx import Document
 
 
 def upload():
-    root = Tk()
-    root.withdraw()
-    file = filedialog.askopenfilename()
+    load_workbook = workbook(file)
+    sheet = load_workbook.active
+    headings = [cell.value for cell in sheet[1]]
+    print(headings)
+    
+    data = {}
+
+
     
     return file
 
